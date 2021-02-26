@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, Text } from 'react-native';
 
-import DepartureDropdown from './DepartureDropdown';
+import DepartureDropdown from './components/DepartureDropdown';
 import Destinations from './Destinations';
 
 const departureTerminals = [
