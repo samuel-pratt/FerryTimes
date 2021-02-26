@@ -1,13 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 
-export default function App() {
+import AppView from './AppView';
+
+const ferrytimesUrl = 'https://www.ferrytimes.ca/api/'
+
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState({});
+  const [shouldRefresh, setShouldRefresh] = useState(false)
+
+  useEffect(() => {
+    fetch(ferrytimesUrl)
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => alert(error))
+      .finally(setIsLoading(false));
+  }, [shouldRefresh])
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <AppView data={data} />
+      )}
+    </SafeAreaView>
   );
 }
 
@@ -19,3 +37,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
