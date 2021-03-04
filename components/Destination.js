@@ -39,7 +39,7 @@ const readableNames = {
   "snug-cove-bowen-island": "Snug Cove (Bowen Island)"
 }
 
-const Destination = ({destination, sailings}) =>  {
+const Destination = ({sailings}) =>  {
   return (
     <SafeAreaView style={styles.container}>
       

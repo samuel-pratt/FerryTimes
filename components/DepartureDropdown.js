@@ -4,7 +4,7 @@ import { StyleSheet, SafeAreaView, Text } from 'react-native';
 const DepartureDropdown = ({options}) =>  {
   return (
     <SafeAreaView style={styles.container}>
-      
+    
     </SafeAreaView>
   );
 }

@@ -40,9 +40,10 @@ const readableNames = {
 }
 
 const Destinations = ({destination, schedule}) =>  {
+  const isLoaded = schedule.tsawwassen ? true : false;
   return (
     <SafeAreaView style={styles.container}>
-      
+      {isLoaded && <p>{schedule['tsawwassen']['swartz bay'][0]['capacity']}</p>}
     </SafeAreaView>
   );
 }
