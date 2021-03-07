@@ -39,22 +39,19 @@ const readableNames = {
   "snug-cove-bowen-island": "Snug Cove (Bowen Island)"
 }
 
-const Destinations = ({destination, schedule}) =>  {
-  const isLoaded = schedule.tsawwassen ? true : false;
+const Destination = ({terminal, schedule}) =>  {
+  console.log(terminal);
+  console.log(schedule);
   return (
     <SafeAreaView style={styles.container}>
-      {isLoaded && <p>{schedule['tsawwassen']['swartz bay'][0]['capacity']}</p>}
+      <Text>{terminal}</Text>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
-export default Destinations;
+export default Destination;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 
 import DepartureDropdown from './components/DepartureDropdown';
-import Destinations from './components/Destinations';
+import DestinationList from './components/DestinationList';
 
 const departureTerminals = [
   "tsawwassen",
@@ -45,7 +45,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [shouldRefresh, setShouldRefresh] = useState(false);
-  const [currentSelection, setCurrentSelection] = useState('Tsawwassen');
+  const [currentSelection, setCurrentSelection] = useState('tsawwassen');
 
   useEffect(() => {
     fetch(ferrytimesUrl)
@@ -61,7 +61,7 @@ const App = () => {
       {isLoading ? (
         <ActivityIndicator size="large" />
       ) : (
-        <Destinations destination={currentSelection} schedule={data} />
+        <DestinationList departureTerminal={currentSelection} schedule={data} />
       )}
     </SafeAreaView>
   );
@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
