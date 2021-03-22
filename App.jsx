@@ -13,32 +13,6 @@ const departureTerminals = [
   "langdale"
 ];
 
-const destinationTerminals = {
-  "tsawwassen": [
-      "swartz-bay",
-      "southern-gulf-islands",
-      "nanaimo-(duke-pt)"
-  ],
-  "swartz-bay": [
-      "tsawwassen",
-      "fulford-harbour",
-  ],
-  "nanaimo-(duke-pt)": [
-      "tsawwassen"
-  ],
-  "nanaimo-(dep.bay)": [
-      "horseshoe-bay"
-  ],
-  "horseshoe-bay": [
-      "nanaimo-(dep.bay)",
-      "langdale",
-      "snug-cove-bowen-island"
-  ],
-  "langdale": [
-      "horseshoe-bay"
-  ]
-};
-
 const ferrytimesUrl = 'https://www.ferrytimes.ca/api/'
 
 const App = () => {
