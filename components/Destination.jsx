@@ -7,7 +7,8 @@ const Destination = ({destinationTerminal, schedule}) =>  {
   console.log(schedule)
   return (
     <SafeAreaView style={styles.container}>
-      {schedule.map(sailing => {
+      <Text>{destinationTerminal}</Text>
+      {schedule[destinationTerminal].map(sailing => {
         return (<TimeCard time={sailing.time} capacity={sailing.capacity} />)
       })}
     </SafeAreaView>

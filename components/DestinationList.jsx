@@ -3,6 +3,8 @@ import { StyleSheet, SafeAreaView, Text, ActivityIndicator } from 'react-native'
 
 import Destination from './Destination';
 
+import strings from '../strings';
+
 const DestinationList = ({departureTerminal, schedule}) =>  {
   const isLoading = schedule.tsawwassen ? false : true;
   console.log(isLoading)
@@ -11,7 +13,12 @@ const DestinationList = ({departureTerminal, schedule}) =>  {
       {isLoading ? (
         <ActivityIndicator size="large" />
       ) : (
-        <Destination destinationTerminal={'swartz bay'} schedule={schedule['tsawwassen']['swartz bay']} />
+        <SafeAreaView style={styles.container}>
+          <Text>{departureTerminal}</Text>
+          {strings.destinationTerminals[departureTerminal].map(destination => {
+            return (<Destination destinationTerminal={destination} schedule={schedule[departureTerminal]} />)
+          })}
+        </SafeAreaView>
       )}
     </SafeAreaView>
   );

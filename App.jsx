@@ -4,14 +4,7 @@ import { StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 import DepartureDropdown from './components/DepartureDropdown';
 import DestinationList from './components/DestinationList';
 
-const departureTerminals = [
-  "tsawwassen",
-  "swartz-bay",
-  "nanaimo-(duke-pt)",
-  "nanaimo-(dep.bay)",
-  "horseshoe-bay",
-  "langdale"
-];
+import strings from './strings';
 
 const ferrytimesUrl = 'https://www.ferrytimes.ca/api/'
 
@@ -31,7 +24,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <DepartureDropdown options={departureTerminals} currentSelection={currentSelection} setCurrentSelection={setCurrentSelection} />
+      <DepartureDropdown options={strings.departureTerminals} currentSelection={currentSelection} setCurrentSelection={setCurrentSelection} />
       {isLoading ? (
         <ActivityIndicator size="large" />
       ) : (
