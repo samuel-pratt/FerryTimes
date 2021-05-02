@@ -15,22 +15,14 @@ const DestinationList = ({ departureTerminal, schedule }) => {
   console.log(isLoading);
   return (
     <SafeAreaView style={styles.container}>
-      {isLoading ? (
-        <ActivityIndicator size="large" />
-      ) : (
-        <SafeAreaView style={styles.container}>
-          {strings.destinationTerminals[departureTerminal].map(
-            (destination) => {
-              return (
-                <Destination
-                  destinationTerminal={destination}
-                  schedule={schedule[departureTerminal]}
-                />
-              );
-            },
-          )}
-        </SafeAreaView>
-      )}
+      {strings.destinationTerminals[departureTerminal].map((destination) => {
+        return (
+          <Destination
+            destinationTerminal={destination}
+            schedule={schedule[departureTerminal]}
+          />
+        );
+      })}
     </SafeAreaView>
   );
 };

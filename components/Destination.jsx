@@ -3,11 +3,15 @@ import { StyleSheet, SafeAreaView, View, Text } from 'react-native';
 
 import TimeCard from './TimeCard';
 
+import strings from '../strings';
+
 const Destination = ({ destinationTerminal, schedule }) => {
   console.log(schedule);
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.destinationTerminal}>{destinationTerminal}</Text>
+      <Text style={styles.destinationTerminal}>
+        {strings.formattedTerminalNames[destinationTerminal]}
+      </Text>
       <View style={styles.sailings}>
         <TimeCard
           time={schedule[destinationTerminal][0].time}
@@ -32,13 +36,15 @@ const styles = StyleSheet.create({
   },
   sailings: {
     flexDirection: 'row',
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   destinationTerminal: {
     fontFamily: 'Roboto',
     fontWeight: '500',
     fontSize: 25,
-    paddingLeft: 20,
-    paddingTop: 15,
+    paddingLeft: 10,
+    paddingTop: 10,
   },
 });
 

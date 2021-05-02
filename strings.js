@@ -22,7 +22,7 @@ const strings = {
       "tsawwassen"
     ],
     "nanaimo (dep.bay)": [
-      "horseshoe-bay"
+      "horseshoe bay"
     ],
     "horseshoe bay": [
       "nanaimo (dep.bay)",
@@ -32,6 +32,15 @@ const strings = {
     "langdale": [
       "horseshoe bay"
     ]
+  },
+  "formattedTerminalNames": {
+    "tsawwassen": "Tsawwassen",
+    "swartz bay": "Swartz Bay",
+    "nanaimo (duke pt)": "Nanaimo (Duke pt.)",
+    "nanaimo (dep.bay)": "Nanaimo (Dep. Bay",
+    "horseshoe bay": "Horseshoe Bay",
+    "langdale": "Langdale",
+    "southern gulf islands": "Southern Gulf Islands"
   }
 };
 
