@@ -15,7 +15,6 @@ const TimeCard = ({ time, capacity }) => {
   }
 
   const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
 
   const tileWidth = windowWidth / 3.5;
 

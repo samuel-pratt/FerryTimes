@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Feather } from '@expo/vector-icons';
+import DropDownPicker from 'react-native-dropdown-picker';
 
-import DepartureDropdown from './components/DepartureDropdown';
 import DestinationList from './components/DestinationList';
 
 import strings from './strings';
@@ -21,6 +21,12 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const App = () => {
+  const dropdownItems = strings.departureTerminals.map((item) => {
+    return { label: strings.formattedTerminalNames[item], value: item };
+  });
+
+  const [open, setOpen] = useState(false);
+  const [items, setItems] = useState(dropdownItems);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const [shouldRefresh, setShouldRefresh] = useState(false);
@@ -45,10 +51,20 @@ const App = () => {
         <ActivityIndicator size="large" style={styles.loading} />
       ) : (
         <View>
-          <DepartureDropdown
-            options={strings.departureTerminals}
-            currentSelection={currentSelection}
-            setCurrentSelection={setCurrentSelection}
+          <DropDownPicker
+            open={open}
+            value={currentSelection}
+            items={items}
+            setValue={setCurrentSelection}
+            setItems={setItems}
+            setOpen={setOpen}
+            searchable={false}
+            style={styles.dropdown}
+            dropDownContainerStyle={{
+              width: '80%',
+              marginLeft: 10,
+              marginTop: 20,
+            }}
           />
           <DestinationList
             departureTerminal={currentSelection}
@@ -86,6 +102,11 @@ const styles = StyleSheet.create({
   },
   loading: {
     margin: 'auto',
+  },
+  dropdown: {
+    width: '80%',
+    marginLeft: 10,
+    marginTop: 20,
   },
   bottomBar: {
     marginTop: 'auto',

@@ -18,10 +18,12 @@
     "react-dom": "16.13.1",
     "react-feather": "^2.0.9",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+    "react-native-dropdown-picker": "^5.0.0",
     "react-native-swipe-up-down": "^1.0.7",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
-    "react-navigation": "^4.4.4"
+    "react-navigation": "^4.4.4",
+    "rn-sliding-up-panel": "^2.4.5"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
